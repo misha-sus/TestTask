@@ -1,9 +1,11 @@
+import AllSelenide.CloseTheBrowser;
 import AllSelenide.SelenideDriver;
 
 import Pages.Category;
 import Pages.Clothes;
 import Pages.MainPage;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 public class SeleniumTest {
     //сайт wildberries
@@ -11,14 +13,12 @@ public class SeleniumTest {
 
 
 
-        @Nested
-        class openClose {
+    @ExtendWith(CloseTheBrowser.class)
             @BeforeEach
              void start() {
                 SelenideDriver.open(URL);
             }
-            @Nested
-            class Tests {
+
                 @Test
                 void selectedItemWithRequest() {
                     //нажать на кнопку каталог
@@ -32,12 +32,10 @@ public class SeleniumTest {
                     // сранить что в описании есть название выбранной одежды
                     Assertions.assertTrue(MainPage.productDescription().contains(Clothes.JEANS.nameClothe));
                 }
-            }
 
             @AfterEach
             void close() {
                 SelenideDriver.close();
             }
         }
-}
 
