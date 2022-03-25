@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.util.concurrent.TimeUnit;
 
-public class SelenideDriver {
+public class SelenideDriver extends CloseTheBrowser{
 
     private static RemoteWebDriver driver;
     private static WebElement element;

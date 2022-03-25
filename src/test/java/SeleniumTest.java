@@ -13,7 +13,6 @@ public class SeleniumTest {
 
 
 
-    @ExtendWith(CloseTheBrowser.class)
             @BeforeEach
              void start() {
                 SelenideDriver.open(URL);
@@ -35,7 +34,7 @@ public class SeleniumTest {
 
             @AfterEach
             void close() {
-                SelenideDriver.close();
+//                SelenideDriver.close();
             }
         }
 
