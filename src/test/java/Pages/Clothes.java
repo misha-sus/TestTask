@@ -7,7 +7,7 @@ public enum Clothes {
 
     public String nameClothe;
 
-    Clothes(String nameClothe) {
-        this.nameClothe = nameClothe;
+    Clothes(String nameClothes) {
+        this.nameClothe = nameClothes;
     }
 }

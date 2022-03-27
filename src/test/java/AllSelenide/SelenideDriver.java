@@ -1,14 +1,20 @@
 package AllSelenide;
+
+import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+
 import java.util.concurrent.TimeUnit;
 
-public class SelenideDriver extends CloseTheBrowser{
-
+public class SelenideDriver  implements AfterEachCallback {
     private static RemoteWebDriver driver;
     private static WebElement element;
+
+
 
 
     //открывает сайт
@@ -38,8 +44,15 @@ public class SelenideDriver extends CloseTheBrowser{
         return element;
     }
 
-    //закрывает браузер
-    public static void close() {
+    //закрывает браузер\
+
+  public  static void close(){
         driver.quit();
     }
+
+    @Override
+    public void afterEach(ExtensionContext extensionContext) throws Exception {
+        SelenideDriver.close();
+    }
+
 }

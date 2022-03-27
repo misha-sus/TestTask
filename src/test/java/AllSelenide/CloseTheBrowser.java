@@ -1,11 +1,15 @@
 package AllSelenide;
 
-import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.jupiter.api.extension.TestInstancePostProcessor;
+import org.junit.jupiter.api.extension.*;
+//этот класс не использую
+public class CloseTheBrowser implements BeforeEachCallback
+{
+    @RegisterExtension
+     SelenideDriver selenideDriver = new SelenideDriver();
 
-public class CloseTheBrowser implements TestInstancePostProcessor {
+
     @Override
-    public void postProcessTestInstance(Object o, ExtensionContext extensionContext) throws Exception {
-        SelenideDriver.close();
+    public void beforeEach(ExtensionContext extensionContext) throws Exception {
+
     }
 }
